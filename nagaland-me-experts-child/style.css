@@ -460,8 +460,8 @@ p .nme-btn {
 }
 
 @media (max-width: 640px) {
-    .nme-hero { padding: 60px 16px 80px; }
-    .nme-hero h1 { font-size: 2.25rem; }
+    .nme-hero { padding: 48px 16px 60px; }
+    .nme-hero h1 { font-size: 1.85rem; }
     .nme-hero p.lead { font-size: 1.05rem; }
 }
 
@@ -1474,4 +1474,116 @@ header.site-header,
 .ast-mobile-header-wrap {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
+}
+/* ============================================================
+   MOBILE MENU + DESKTOP ACCOUNT DROPDOWN
+   Consolidated from wp-admin → Appearance → Customize →
+   Additional CSS so all theme CSS lives in one version-controlled
+   file. Every rule keeps its !important so load-order differences
+   vs. the old Customizer location don't cause regressions.
+   ============================================================ */
+
+/* Mobile menu items — dark text on white mobile panel */
+@media (max-width: 921px) {
+
+    /* The mobile menu panel itself */
+    .main-header-menu.submenu-with-border,
+    .ast-mobile-header-wrap .main-header-menu,
+    #ast-mobile-header .main-header-menu,
+    .ast-mobile-popup-content .main-header-menu {
+        background: #FFFFFF !important;
+    }
+
+    /* All mobile menu links — dark forest green text */
+    .main-header-menu.submenu-with-border .menu-item a,
+    .ast-mobile-header-wrap .menu-item a,
+    #ast-mobile-header .menu-item a,
+    .ast-mobile-popup-content .menu-item a,
+    .ast-builder-menu-mobile .menu-item a {
+        color: #0F2419 !important;
+        font-weight: 500;
+        padding: 16px 20px !important;
+        border-bottom: 1px solid #E5E7EB !important;
+    }
+
+    /* Hover state */
+    .main-header-menu.submenu-with-border .menu-item a:hover,
+    .ast-mobile-header-wrap .menu-item a:hover,
+    #ast-mobile-header .menu-item a:hover,
+    .ast-mobile-popup-content .menu-item a:hover,
+    .ast-builder-menu-mobile .menu-item a:hover {
+        background: #FAF7F0 !important;
+        color: #0A7558 !important;
+    }
+
+    /* Current / active item */
+    .main-header-menu.submenu-with-border .current-menu-item > a,
+    .ast-mobile-header-wrap .current-menu-item > a,
+    #ast-mobile-header .current-menu-item > a,
+    .ast-mobile-popup-content .current-menu-item > a,
+    .ast-builder-menu-mobile .current-menu-item > a {
+        color: #D4A843 !important;
+        background: #FAF7F0 !important;
+    }
+
+    /* Submenus (the "Hi, Name ▾" dropdown) — indented */
+    .main-header-menu.submenu-with-border .sub-menu .menu-item a,
+    .ast-mobile-header-wrap .sub-menu .menu-item a,
+    #ast-mobile-header .sub-menu .menu-item a,
+    .ast-mobile-popup-content .sub-menu .menu-item a,
+    .ast-builder-menu-mobile .sub-menu .menu-item a {
+        padding-left: 40px !important;
+        background: #FAF7F0 !important;
+        font-size: 0.95rem;
+    }
+
+    /* Hide the thin yellow line that appears under the header on mobile */
+    /* (if the line is distracting, remove this block; if fine, leave it) */
+
+    /* Mobile menu toggle button (hamburger) — make it white on dark header */
+    .ast-mobile-menu-buttons-fill,
+    .ast-mobile-menu-buttons-minimal,
+    .menu-toggle {
+        color: #FFFFFF !important;
+    }
+
+    .ast-mobile-menu-buttons-fill .menu-toggle-icon,
+    .menu-toggle .mobile-menu-wrap .mobile-menu,
+    .menu-toggle svg {
+        fill: #FFFFFF !important;
+        color: #FFFFFF !important;
+    }
+}
+
+/* Desktop "Hi, Name ▾" dropdown — ensure it's visible on dark header */
+@media (min-width: 922px) {
+    .nme-account-item > a,
+    .nme-login-item > a {
+        color: #FFFFFF !important;
+    }
+
+    .nme-account-item > a:hover,
+    .nme-login-item > a:hover {
+        color: #D4A843 !important;
+    }
+
+    /* Desktop sub-menu dropdown */
+    .nme-account-item .sub-menu {
+        background: #FFFFFF;
+        border: 1px solid #E5E7EB;
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(15, 36, 25, 0.12);
+        min-width: 200px;
+        padding: 8px 0;
+    }
+
+    .nme-account-item .sub-menu .menu-item a {
+        color: #0F2419 !important;
+        padding: 10px 16px;
+    }
+
+    .nme-account-item .sub-menu .menu-item a:hover {
+        background: #FAF7F0;
+        color: #0A7558 !important;
+    }
 }
