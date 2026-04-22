@@ -81,6 +81,7 @@ class NMEP_Shortcodes {
        ============================================================ */
 
     public static function sc_expert_dashboard( $atts ) {
+        self::prevent_page_cache();
         if ( ! is_user_logged_in() ) {
             return self::render_login_required( 'Please log in to access your Expert Dashboard.' );
         }
@@ -1923,6 +1924,7 @@ class NMEP_Shortcodes {
        ============================================================ */
 
     public static function sc_track_order( $atts ) {
+        self::prevent_page_cache();
         $order_number = isset( $_GET['order'] ) ? sanitize_text_field( $_GET['order'] ) : '';
         $token        = isset( $_GET['token'] ) ? sanitize_text_field( $_GET['token'] ) : '';
 
@@ -2134,7 +2136,7 @@ class NMEP_Shortcodes {
                             Revisions left: <strong><?php echo (int) ( $order->revisions_allowed - $order->revisions_used ); ?> of <?php echo (int) $order->revisions_allowed; ?></strong>
                         </p>
                         <p>
-                            <textarea name="revision_message" rows="3" required placeholder="Describe what needs to be changed..." style="width: 100%; padding: 8px; border: 1px solid var(--nme-border, #E5E7EB); border-radius: 6px;"></textarea>
+                            <textarea name="revision_message" rows="3" required minlength="10" placeholder="Describe what needs to be changed (at least 10 characters)..." style="width: 100%; padding: 8px; border: 1px solid var(--nme-border, #E5E7EB); border-radius: 6px;"></textarea>
                         </p>
                         <button type="submit" class="nme-btn">Request Revision</button>
                     </form>
@@ -2284,6 +2286,7 @@ class NMEP_Shortcodes {
        ============================================================ */
 
     public static function sc_my_orders() {
+        self::prevent_page_cache();
         // Two access modes: logged-in user OR email lookup
         if ( is_user_logged_in() ) {
             return self::render_my_orders_logged_in();
@@ -2433,6 +2436,24 @@ class NMEP_Shortcodes {
     /* ============================================================
        UI HELPERS
        ============================================================ */
+
+    /**
+     * Tells LiteSpeed Cache, WP Rocket, WP Super Cache, W3 Total Cache etc.
+     * not to cache the current response, and emits standard HTTP no-cache
+     * headers so browsers and CDNs in front of WP also bypass their caches.
+     *
+     * Required on any shortcode whose HTML depends on per-user / per-order
+     * state — otherwise the buyer's /order-track/ keeps showing the PAID
+     * snapshot even after the expert marks delivered, and the approve /
+     * revision / dispute buttons never appear. We discovered this the hard
+     * way on Hostinger where LiteSpeed Cache is enabled by default.
+     */
+    private static function prevent_page_cache() {
+        if ( ! defined( 'DONOTCACHEPAGE' ) ) define( 'DONOTCACHEPAGE', true );
+        if ( ! headers_sent() ) {
+            nocache_headers();
+        }
+    }
 
     private static function render_status_messages() {
         if ( ! isset( $_GET['nmep_status'] ) ) return '';
