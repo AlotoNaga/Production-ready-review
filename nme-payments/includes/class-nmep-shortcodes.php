@@ -333,6 +333,33 @@ class NMEP_Shortcodes {
                                         <button type="submit" class="nme-btn nme-btn-gold">📦 Send Delivery to Buyer</button>
                                     </form>
                                 </details>
+
+                                <?php
+                                // Conversation with buyer — post-purchase order messages.
+                                // The send handler (NMEP_Messages::handle_send_message) already
+                                // authorizes the expert role via the logged-in user, and its
+                                // post-send redirect points at this dashboard — but the render
+                                // call was missing here, which is why experts couldn't see or
+                                // reply to buyer messages after purchase. Compute the unread
+                                // count BEFORE render_thread() runs (which marks read) so the
+                                // badge is accurate on this render.
+                                if ( class_exists( 'NMEP_Messages' ) ) :
+                                    $order_unread = (int) $wpdb->get_var( $wpdb->prepare(
+                                        "SELECT COUNT(*) FROM " . NMEP_Database::table( 'order_messages' ) . "
+                                         WHERE order_id = %d AND sender_role = 'buyer' AND is_read = 0",
+                                        (int) $o->id
+                                    ) );
+                                ?>
+                                <details style="margin-top: 12px;" <?php echo $order_unread > 0 ? 'open' : ''; ?>>
+                                    <summary style="cursor: pointer; color: var(--nme-emerald, #10B981); font-weight: 600;">
+                                        💬 Conversation with buyer
+                                        <?php if ( $order_unread > 0 ) : ?>
+                                            <span style="background:#EF4444;color:#fff;border-radius:999px;padding:1px 8px;font-size:0.75rem;font-weight:700;margin-left:6px;"><?php echo (int) $order_unread; ?> new</span>
+                                        <?php endif; ?>
+                                    </summary>
+                                    <?php echo NMEP_Messages::render_thread( $o, 'expert', admin_url( 'admin-post.php' ) ); ?>
+                                </details>
+                                <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
                     </div>
