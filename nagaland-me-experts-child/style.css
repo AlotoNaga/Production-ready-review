@@ -460,10 +460,25 @@ p .nme-btn {
 }
 
 @media (max-width: 640px) {
-    .nme-hero { padding: 48px 0 60px !important; }
-    .nme-hero .nme-container { padding: 0 16px !important; max-width: 100% !important; }
-    .nme-hero h1 { font-size: 1.85rem !important; }
-    .nme-hero p.lead { font-size: 1.05rem !important; max-width: 100% !important; }
+
+    .nme-hero {
+        padding: 48px 0 60px !important;
+    }
+
+    .nme-hero .nme-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .nme-hero h1 {
+        font-size: 1.95rem;
+        line-height: 1.25;
+    }
+
+    .nme-hero p.lead {
+        font-size: 1.05rem;
+        max-width: 100%;
+    }
 }
 
 /* === EXPERT HERO — v1.2.2 (distinct from homepage) === */
