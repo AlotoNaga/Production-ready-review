@@ -2134,7 +2134,7 @@ class NMEP_Shortcodes {
                             Revisions left: <strong><?php echo (int) ( $order->revisions_allowed - $order->revisions_used ); ?> of <?php echo (int) $order->revisions_allowed; ?></strong>
                         </p>
                         <p>
-                            <textarea name="revision_message" rows="3" required placeholder="Describe what needs to be changed..." style="width: 100%; padding: 8px; border: 1px solid var(--nme-border, #E5E7EB); border-radius: 6px;"></textarea>
+                            <textarea name="revision_message" rows="3" required minlength="10" placeholder="Describe what needs to be changed (at least 10 characters)..." style="width: 100%; padding: 8px; border: 1px solid var(--nme-border, #E5E7EB); border-radius: 6px;"></textarea>
                         </p>
                         <button type="submit" class="nme-btn">Request Revision</button>
                     </form>
