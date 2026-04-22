@@ -239,13 +239,14 @@ function nme_render_custom_footer() {
 add_shortcode( 'nme_hero', 'nme_hero_shortcode' );
 function nme_hero_shortcode( $atts ) {
     $defaults = array(
-        'title'      => 'Hire trusted creator experts',
-        'highlight'  => 'from Northeast India',
-        'subtitle'   => 'Verified pros to grow your YouTube, Facebook, and digital presence — protected by escrow.',
-        'cta1_text'  => 'Find an Expert',
-        'cta1_url'   => '/categories/',
-        'cta2_text'  => 'Become an Expert',
-        'cta2_url'   => '/become-an-expert/',
+        'title'              => 'Grow Your YouTube & Facebook Channels with Verified Experts',
+        'highlight'          => 'from Nagaland',
+        'subtitle'           => 'Monetization stuck? Videos not going viral? Need thumbnails, video editing, or tax-form help? Hire a verified expert from Nagaland, Northeast India —',
+        'subtitle_highlight' => 'pay only when you\'re happy.',
+        'cta1_text'          => 'Find an Expert',
+        'cta1_url'           => '/categories/',
+        'cta2_text'          => 'Become an Expert & Start Earning',
+        'cta2_url'           => '/become-an-expert/',
     );
 
     if ( ! is_array( $atts ) ) {
@@ -263,8 +264,13 @@ function nme_hero_shortcode( $atts ) {
                     <span class="nme-gold-text"><?php echo wp_kses_post( $a['highlight'] ); ?></span>
                 <?php endif; ?>
             </h1>
-            <?php if ( ! empty( $a['subtitle'] ) ) : ?>
-                <p class="lead"><?php echo wp_kses_post( $a['subtitle'] ); ?></p>
+            <?php if ( ! empty( $a['subtitle'] ) || ! empty( $a['subtitle_highlight'] ) ) : ?>
+                <p class="lead">
+                    <?php echo wp_kses_post( $a['subtitle'] ); ?>
+                    <?php if ( ! empty( $a['subtitle_highlight'] ) ) : ?>
+                        <span class="nme-emerald-text"><?php echo wp_kses_post( $a['subtitle_highlight'] ); ?></span>
+                    <?php endif; ?>
+                </p>
             <?php endif; ?>
             <div class="nme-hero-cta">
                 <?php if ( ! empty( $a['cta1_text'] ) && ! empty( $a['cta1_url'] ) ) : ?>

@@ -1,0 +1,1477 @@
+/*
+Theme Name:     Nagaland Me Experts Child
+Theme URI:      https://experts.nagaland.me
+Description:    Astra child theme for Nagaland Me Experts marketplace. Forest green & gold brand identity matching nagaland.me parent brand.
+Author:         Nagaland Me
+Author URI:     https://nagaland.me
+Template:       astra
+Version:        1.2.11
+License:        GNU General Public License v2 or later
+License URI:    http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:    nagaland-me-experts-child
+*/
+
+/* ============================================================
+   NAGALAND ME EXPERTS — BRAND FOUNDATION v1.2
+   Cleaned: removed duplicate button rules
+   Fixed: button text vertical centering done properly
+   ============================================================ */
+
+/* === GOOGLE FONTS === */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* === BRAND VARIABLES === */
+:root {
+    --nme-forest:       #0F2419;
+    --nme-forest-dark:  #081410;
+    --nme-green:        #0A7558;
+    --nme-emerald:      #10B981;
+    --nme-gold:         #D4A843;
+    --nme-gold-light:   #E5C273;
+    --nme-cream:        #FAF7F0;
+    --nme-white:        #FFFFFF;
+    --nme-text:         #1F2937;
+    --nme-text-light:   #6B7280;
+    --nme-border:       #E5E7EB;
+    --nme-bg-soft:      #F9FAFB;
+
+    --nme-radius:       12px;
+    --nme-radius-lg:    20px;
+    --nme-shadow:       0 4px 20px rgba(15, 36, 25, 0.08);
+    --nme-shadow-lg:    0 12px 40px rgba(15, 36, 25, 0.12);
+    --nme-transition:   all 0.3s ease;
+
+    --nme-font-heading: 'Cormorant Garamond', Georgia, serif;
+    --nme-font-body:    'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* === FULL-WIDTH LAYOUT OVERRIDES === */
+body,
+.site,
+.site-content,
+#content,
+#primary,
+.ast-container,
+.entry-content,
+.ast-no-sidebar .entry-content {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.ast-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+.site-content > .ast-container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+#primary,
+.content-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+article.post,
+article.page,
+.ast-article-single,
+.ast-article-post {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.ast-no-thumbnail .post-thumb-img-content {
+    display: none;
+}
+
+/* Hide redundant page titles when hero shortcode is present */
+.entry-header,
+.ast-archive-description,
+.entry-title,
+.page .entry-header {
+    display: none !important;
+}
+
+/* === GLOBAL BASE === */
+body {
+    font-family: var(--nme-font-body) !important;
+    color: var(--nme-text) !important;
+    background: var(--nme-white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.entry-title,
+.site-title {
+    font-family: var(--nme-font-heading) !important;
+    color: var(--nme-forest) !important;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2.25rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.35rem; }
+
+p {
+    color: var(--nme-text);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+a {
+    color: var(--nme-green);
+    text-decoration: none;
+    transition: var(--nme-transition);
+}
+
+a:hover {
+    color: var(--nme-emerald);
+}
+
+/* === SITE HEADER === */
+.site-header,
+.ast-primary-header-bar,
+.main-header-bar,
+header.site-header {
+    background: var(--nme-forest) !important;
+    border-bottom: 3px solid var(--nme-gold) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.main-header-bar-wrap,
+.ast-primary-header-bar .ast-container {
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+}
+
+.site-title a,
+.site-branding .site-title {
+    color: var(--nme-white) !important;
+    font-family: var(--nme-font-heading) !important;
+    font-size: 1.75rem !important;
+    font-weight: 700;
+}
+
+.site-description {
+    color: var(--nme-gold) !important;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* === LOGO + EXPERTS WORDMARK === */
+.nme-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nme-brand-wrap .nme-experts-tag {
+    background: var(--nme-gold);
+    color: var(--nme-forest);
+    font-family: var(--nme-font-body);
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* === NAVIGATION === */
+.main-header-menu .menu-item > a,
+.main-navigation a,
+.ast-builder-menu a {
+    color: var(--nme-white) !important;
+    font-family: var(--nme-font-body) !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    transition: var(--nme-transition);
+}
+
+.main-header-menu .menu-item > a:hover,
+.main-navigation a:hover,
+.ast-builder-menu a:hover {
+    color: var(--nme-gold) !important;
+}
+
+.main-header-menu .current-menu-item > a {
+    color: var(--nme-gold) !important;
+    border-bottom: 2px solid var(--nme-gold);
+}
+
+/* ============================================================
+   BUTTONS — SINGLE CLEAN DEFINITION
+   (Removed all duplicate rules. Text now perfectly centered.)
+   ============================================================ */
+.nme-btn,
+a.nme-btn,
+.wp-block-button__link,
+input[type="submit"],
+button[type="submit"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--nme-emerald) !important;
+    color: var(--nme-white) !important;
+    font-family: var(--nme-font-body) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    padding: 18px 32px !important;
+    min-height: 56px !important;
+    min-width: 180px !important;
+    border-radius: var(--nme-radius) !important;
+    border: none !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+    letter-spacing: 0.02em !important;
+    margin: 0 !important;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    transition: var(--nme-transition) !important;
+    white-space: nowrap;
+}
+
+.nme-btn:hover,
+a.nme-btn:hover,
+.wp-block-button__link:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background: var(--nme-green) !important;
+    color: var(--nme-white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(10, 117, 88, 0.35);
+}
+
+.nme-btn-gold,
+a.nme-btn-gold {
+    background: var(--nme-gold) !important;
+    color: var(--nme-forest) !important;
+    box-shadow: 0 4px 14px rgba(212, 168, 67, 0.3);
+}
+
+.nme-btn-gold:hover,
+a.nme-btn-gold:hover {
+    background: var(--nme-gold-light) !important;
+    color: var(--nme-forest) !important;
+}
+
+.nme-btn-outline,
+a.nme-btn-outline {
+    background: transparent !important;
+    color: var(--nme-forest) !important;
+    border: 2px solid var(--nme-forest) !important;
+    box-shadow: none !important;
+}
+
+.nme-btn-outline:hover,
+a.nme-btn-outline:hover {
+    background: var(--nme-forest) !important;
+    color: var(--nme-white) !important;
+}
+
+/* Button groups - auto-spacing */
+.nme-hero-cta,
+.nme-button-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+/* Make sure buttons inside paragraphs don't get extra spacing */
+p .nme-btn {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* === CONTAINERS === */
+.nme-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nme-section {
+    padding: 80px 0;
+    width: 100%;
+}
+
+.nme-section-cream {
+    background: var(--nme-cream);
+}
+
+.nme-section-forest {
+    background: var(--nme-forest);
+    color: var(--nme-white);
+}
+
+.nme-section-forest h1,
+.nme-section-forest h2,
+.nme-section-forest h3 {
+    color: var(--nme-white) !important;
+}
+
+.nme-section-forest p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* === CARDS === */
+.nme-card {
+    background: var(--nme-white);
+    border-radius: var(--nme-radius-lg);
+    padding: 32px;
+    box-shadow: var(--nme-shadow);
+    border: 1px solid var(--nme-border);
+    transition: var(--nme-transition);
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.nme-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--nme-shadow-lg);
+    border-color: var(--nme-emerald);
+}
+
+.nme-card-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--nme-cream);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: var(--nme-emerald);
+}
+
+.nme-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+}
+
+.nme-card p {
+    font-size: 0.98rem;
+    color: var(--nme-text-light);
+    margin-bottom: 0;
+}
+
+/* === GRID === */
+.nme-grid {
+    display: grid;
+    gap: 28px;
+}
+
+.nme-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.nme-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.nme-grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 1024px) {
+    .nme-grid-3, .nme-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .nme-grid-2, .nme-grid-3, .nme-grid-4 { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .nme-section { padding: 56px 0; }
+    .nme-btn {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+/* === HERO SECTION === */
+.nme-hero {
+    background: linear-gradient(135deg, var(--nme-forest) 0%, var(--nme-forest-dark) 100%);
+    color: var(--nme-white);
+    padding: 100px 24px 120px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nme-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--nme-gold) 0%, var(--nme-emerald) 100%);
+}
+
+.nme-hero h1 {
+    color: var(--nme-white) !important;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    line-height: 1.15;
+}
+
+.nme-hero h1 .nme-gold-text {
+    color: var(--nme-gold);
+    font-style: italic;
+}
+
+.nme-hero p.lead {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 720px;
+    margin: 0 auto 40px;
+}
+
+/* Emerald accent inside the hero subtitle — reserved for the risk-free
+   promise phrase ("pay only when you're happy"). Weight 600 instead of
+   italic so it reads as a trust signal, not decoration. */
+.nme-hero p.lead .nme-emerald-text {
+    color: var(--nme-emerald);
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .nme-hero { padding: 60px 16px 80px; }
+    .nme-hero h1 { font-size: 2.25rem; }
+    .nme-hero p.lead { font-size: 1.05rem; }
+}
+
+/* === EXPERT HERO — v1.2.2 (distinct from homepage) === */
+.nme-hero-expert {
+    background:
+        radial-gradient(1200px 500px at 85% -10%, rgba(16, 185, 129, 0.35) 0%, transparent 60%),
+        radial-gradient(900px 500px at 10% 110%, rgba(212, 168, 67, 0.18) 0%, transparent 60%),
+        linear-gradient(135deg, #0A7558 0%, #0F2419 55%, #081410 100%);
+}
+
+.nme-hero-expert::before {
+    background: linear-gradient(90deg, var(--nme-emerald) 0%, var(--nme-gold) 100%);
+}
+
+.nme-hero-trust {
+    list-style: none;
+    margin: 36px 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 36px;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.98rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.nme-hero-trust li {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nme-hero-trust-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(16, 185, 129, 0.18);
+    color: var(--nme-gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.nme-hero-trust-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* === SVG CARD ICONS === */
+.nme-card-icon.nme-icon-svg {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(212, 168, 67, 0.12) 100%);
+    color: var(--nme-emerald);
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: var(--nme-transition);
+}
+
+.nme-card-icon.nme-icon-svg svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.nme-card:hover .nme-card-icon.nme-icon-svg {
+    background: linear-gradient(135deg, var(--nme-emerald) 0%, var(--nme-green) 100%);
+    color: var(--nme-white);
+    transform: rotate(-4deg) scale(1.04);
+}
+
+/* === CHECKLIST (Founding Expert) === */
+.nme-checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nme-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+    color: var(--nme-text);
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.nme-checklist li + li {
+    border-top: 1px dashed var(--nme-border);
+}
+
+.nme-check-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--nme-emerald);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.nme-check-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+.nme-checklist-gold .nme-check-icon {
+    background: rgba(212, 168, 67, 0.18);
+    color: var(--nme-gold);
+}
+
+/* === FINAL CTA CARD === */
+.nme-cta-card {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.nme-cta-icon {
+    margin: 0 auto 16px;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--nme-emerald) 0%, var(--nme-green) 100%);
+    color: var(--nme-white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nme-cta-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.nme-cta-card-lead {
+    color: var(--nme-text-light);
+    margin-bottom: 28px;
+}
+
+.nme-cta-wa {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--nme-text-light);
+}
+
+.nme-cta-wa a {
+    color: var(--nme-emerald);
+    font-weight: 600;
+}
+
+/* === BADGES & TAGS === */
+.nme-badge {
+    display: inline-block;
+    background: var(--nme-gold);
+    color: var(--nme-forest);
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.nme-badge-emerald {
+    background: var(--nme-emerald);
+    color: var(--nme-white);
+}
+
+/* === TRUST STRIP === */
+.nme-trust-strip {
+    background: var(--nme-cream);
+    padding: 40px 0;
+    border-top: 1px solid var(--nme-border);
+    border-bottom: 1px solid var(--nme-border);
+    width: 100%;
+}
+
+.nme-trust-strip .nme-grid {
+    text-align: center;
+}
+
+.nme-trust-stat {
+    font-family: var(--nme-font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--nme-forest);
+    line-height: 1;
+}
+
+.nme-trust-label {
+    font-size: 0.9rem;
+    color: var(--nme-text-light);
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+}
+
+/* === FOOTER — REMOVE EMPTY SPACE === */
+.site-footer,
+.footer-adv,
+.ast-footer-overlay,
+.site-below-footer-wrap,
+.site-primary-footer-wrap {
+    display: none !important;
+}
+
+.nme-custom-footer-bar {
+    margin: 0 !important;
+    padding: 20px 16px !important;
+}
+
+/* === FORMS === */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="file"],
+textarea,
+select {
+    border: 1.5px solid var(--nme-border) !important;
+    border-radius: var(--nme-radius) !important;
+    padding: 14px 18px !important;
+    font-family: var(--nme-font-body) !important;
+    font-size: 1rem !important;
+    color: var(--nme-text) !important;
+    background: var(--nme-white) !important;
+    transition: var(--nme-transition) !important;
+    width: 100%;
+    box-sizing: border-box !important;
+    line-height: 1.5 !important;
+    height: auto !important;
+    min-height: 48px !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+select {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%230A7558' d='M6 8L0 0h12z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 18px center !important;
+    background-size: 12px 8px !important;
+    padding-right: 44px !important;
+    cursor: pointer;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--nme-emerald) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+
+label {
+    font-weight: 600;
+    color: var(--nme-forest);
+    margin-bottom: 8px;
+    display: block;
+    font-size: 0.95rem;
+}
+
+textarea {
+    min-height: 120px !important;
+    resize: vertical;
+}
+
+/* === SECTION SPACING === */
+section + section {
+    margin: 0 !important;
+}
+
+.wp-block-group,
+.wp-block-columns {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* === SCROLL TO TOP BUTTON === */
+#ast-scroll-top {
+    background: var(--nme-emerald) !important;
+    color: var(--nme-white) !important;
+    border-radius: 12px !important;
+}
+
+/* === UTILITY CLASSES === */
+.nme-text-center { text-align: center; }
+.nme-text-left { text-align: left; }
+.nme-text-right { text-align: right; }
+.nme-mt-0 { margin-top: 0; }
+.nme-mt-1 { margin-top: 8px; }
+.nme-mt-2 { margin-top: 16px; }
+.nme-mt-3 { margin-top: 24px; }
+.nme-mt-4 { margin-top: 32px; }
+.nme-mb-0 { margin-bottom: 0; }
+.nme-mb-1 { margin-bottom: 8px; }
+.nme-mb-2 { margin-bottom: 16px; }
+.nme-mb-3 { margin-bottom: 24px; }
+.nme-mb-4 { margin-bottom: 32px; }
+.nme-gold { color: var(--nme-gold); }
+.nme-forest { color: var(--nme-forest); }
+.nme-emerald { color: var(--nme-emerald); }
+
+/* === MOBILE NAV POLISH === */
+@media (max-width: 921px) {
+    .main-header-bar-navigation {
+        background: var(--nme-forest-dark) !important;
+    }
+    .main-header-menu .menu-item > a {
+        padding: 14px 20px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    }
+}
+
+/* ============================================================
+   v1.2.4 — ABOUT + TRUST & SAFETY
+   ============================================================ */
+
+/* --- About editorial hero --- */
+.nme-about-hero {
+    background: var(--nme-cream);
+    padding: 100px 24px 80px;
+    text-align: center;
+    border-bottom: 1px solid var(--nme-border);
+}
+
+.nme-kicker {
+    display: inline-block;
+    font-family: var(--nme-font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    color: var(--nme-gold);
+    margin-bottom: 28px;
+    padding: 6px 16px;
+    background: rgba(212, 168, 67, 0.1);
+    border-radius: 50px;
+}
+
+.nme-about-hero-title {
+    font-family: var(--nme-font-heading) !important;
+    color: var(--nme-forest) !important;
+    font-size: 3.25rem !important;
+    line-height: 1.1;
+    margin: 0 auto 24px !important;
+    max-width: 820px;
+    font-weight: 600;
+}
+
+.nme-divider-gold {
+    display: inline-block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--nme-gold) 0%, var(--nme-gold-light) 100%);
+    border-radius: 2px;
+    margin: 0 auto 24px;
+}
+
+.nme-about-hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--nme-text-light);
+    max-width: 640px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+@media (max-width: 640px) {
+    .nme-about-hero { padding: 64px 16px 52px; }
+    .nme-about-hero-title { font-size: 2.1rem !important; }
+    .nme-about-hero-subtitle { font-size: 1.05rem; }
+}
+
+/* --- Nagaland Me family cards --- */
+.nme-family-card {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--nme-text) !important;
+    text-decoration: none !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nme-family-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--nme-gold) 0%, var(--nme-emerald) 100%);
+    opacity: 0;
+    transition: var(--nme-transition);
+}
+
+.nme-family-card:hover {
+    color: var(--nme-forest) !important;
+    border-color: var(--nme-gold) !important;
+}
+
+.nme-family-card:hover::before {
+    opacity: 1;
+}
+
+.nme-family-logo-wrap {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    background: var(--nme-white);
+    border: 1px solid var(--nme-border);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(15, 36, 25, 0.06);
+    transition: var(--nme-transition);
+    flex-shrink: 0;
+}
+
+.nme-family-card:hover .nme-family-logo-wrap {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(15, 36, 25, 0.12);
+}
+
+.nme-family-logo-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nme-family-name {
+    font-family: var(--nme-font-body) !important;
+    font-size: 1.15rem !important;
+    font-weight: 700;
+    color: var(--nme-forest) !important;
+    margin: 4px 0 0 !important;
+    letter-spacing: -0.005em;
+}
+
+.nme-family-visit {
+    margin-top: auto;
+    padding-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--nme-emerald);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-top: 1px dashed var(--nme-border);
+    width: 100%;
+    transition: var(--nme-transition);
+}
+
+.nme-family-arrow {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    transition: transform 0.3s ease;
+}
+
+.nme-family-arrow svg {
+    width: 100%;
+    height: 100%;
+}
+
+.nme-family-card:hover .nme-family-arrow {
+    transform: translateX(4px);
+}
+
+/* --- Trust & Safety hero (forest + gold glow, inverse of expert) --- */
+.nme-hero-trust {
+    background:
+        radial-gradient(1100px 550px at 15% -10%, rgba(212, 168, 67, 0.28) 0%, transparent 60%),
+        radial-gradient(900px 500px at 90% 110%, rgba(16, 185, 129, 0.15) 0%, transparent 60%),
+        linear-gradient(180deg, #0F2419 0%, #081410 100%);
+}
+
+.nme-hero-trust::before {
+    background: linear-gradient(90deg, var(--nme-gold) 0%, var(--nme-emerald) 60%, var(--nme-gold) 100%);
+}
+
+.nme-trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: rgba(212, 168, 67, 0.14);
+    border: 1px solid rgba(212, 168, 67, 0.35);
+    color: var(--nme-gold-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    margin-bottom: 28px;
+}
+
+.nme-trust-badge-icon {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    color: var(--nme-gold);
+}
+
+.nme-trust-badge-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Buyer guarantee cards --- */
+.nme-guarantee-card .nme-guarantee-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.nme-guarantee-card h3 {
+    margin: 0 !important;
+    font-size: 1.25rem !important;
+}
+
+.nme-check-icon-lg {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--nme-emerald) 0%, var(--nme-green) 100%);
+    color: var(--nme-white);
+    margin-top: 0;
+}
+
+.nme-check-icon-lg svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ============================================================
+   v1.2.5 — REMOVE "STACKED PAPER" ARTIFACT
+   Astra's separate-container layout wraps every page in nested
+   boxed cards (site-content > ast-container > article > content-area),
+   each with its own padding/border/shadow/background. On our
+   full-width shortcode pages those layers show as visible edges
+   that look like a pile of pages. This block flattens every
+   remaining wrapper to a single seamless surface. Additive only —
+   nothing above this comment has been changed.
+   ============================================================ */
+body.ast-separate-container,
+body.ast-plain-container,
+body.ast-page-builder-template,
+body.ast-two-container {
+    background: var(--nme-white) !important;
+}
+
+body.ast-separate-container #content,
+body.ast-separate-container #primary,
+body.ast-separate-container .site-content,
+body.ast-separate-container .site-content > .ast-container,
+body.ast-separate-container .ast-article-single,
+body.ast-separate-container .ast-article-post,
+body.ast-separate-container article.post,
+body.ast-separate-container article.page,
+.ast-separate-container .ast-article-single,
+.ast-separate-container article.page,
+.ast-plain-container .site-content,
+.ast-plain-container #primary,
+.ast-page-builder-template .site-content,
+.ast-page-builder-template #primary,
+.ast-page-builder-template .entry-content,
+#content .ast-container,
+.site-content .ast-container,
+.site-content,
+#primary,
+.entry-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.ast-separate-container .ast-article-single,
+.ast-separate-container .ast-article-post,
+.ast-separate-container article.page,
+.ast-separate-container article.post {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Kill Astra's page title bar / banner that sits above content */
+.ast-title-bar-wrap,
+.ast-header-break-point .ast-title-bar-wrap,
+.ast-above-header,
+.ast-below-header,
+.entry-banner,
+.page-title-wrapper,
+.entry-header-wrap,
+header.entry-header,
+.ast-single-post-header {
+    display: none !important;
+}
+
+/* Kill post navigation, comments box, author box that stacks below page */
+.page .post-navigation,
+.page .nav-links,
+.page #comments,
+.page .comments-area,
+.page .ast-author-box,
+.page .ast-single-related-posts-container,
+.page .single-post-pagination {
+    display: none !important;
+}
+
+/* Ensure the shortcode sections butt flush against each other — no gap, no background bleed */
+.site-main,
+main#main,
+#main {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+.site-main > * + *,
+main#main > * + *,
+#main > * + * {
+    margin-top: 0 !important;
+}
+
+/* Block-editor wrappers Gutenberg sometimes injects around shortcodes */
+.entry-content > .wp-block-group,
+.entry-content > .wp-block-columns {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+/* ============================================================
+   v1.2.6 — [nme_logo] BRAND LOGO LOCKUP
+   Premium brand mark for experts.nagaland.me — distinct from
+   the parent nagaland.me magenta/play logo while staying in the
+   same family (rounded-square badge + ascending-arrow accent).
+   ============================================================ */
+.nme-logo,
+.nme-logo *,
+.nme-logo a {
+    box-sizing: border-box;
+}
+
+.nme-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    line-height: 1;
+}
+
+.nme-logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none !important;
+    color: inherit;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nme-logo-link:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+.nme-logo-badge-wrap {
+    display: inline-flex;
+    flex-shrink: 0;
+    filter: drop-shadow(0 6px 18px rgba(15, 36, 25, 0.22));
+}
+
+.nme-logo-badge-svg {
+    display: block;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+}
+
+.nme-logo-text {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: var(--nme-font-body), 'Outfit', sans-serif;
+}
+
+.nme-logo-kicker {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    color: var(--nme-gold);
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.nme-logo-wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 800;
+    font-size: 1.65rem;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.nme-logo-name {
+    color: var(--nme-forest);
+    white-space: nowrap;
+}
+
+.nme-logo-dot {
+    color: var(--nme-gold);
+    font-weight: 900;
+    margin: 0 1px;
+}
+
+.nme-logo-pill {
+    display: inline-flex;
+    align-items: center;
+    background: var(--nme-forest);
+    color: var(--nme-white);
+    font-size: 0.85em;
+    font-weight: 800;
+    padding: 4px 10px 5px;
+    white-space: nowrap;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+    line-height: 1;
+}
+
+.nme-logo-pill-gold {
+    background: var(--nme-gold);
+    color: var(--nme-forest);
+    margin-left: 6px;
+}
+
+.nme-logo-tagline {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--nme-text-light);
+    letter-spacing: 0.01em;
+    margin-top: 2px;
+    line-height: 1.4;
+}
+
+/* Variant: compact (header use) — smaller badge, no kicker, no tagline */
+.nme-logo--compact .nme-logo-badge-svg {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+}
+
+.nme-logo--compact .nme-logo-wordmark {
+    font-size: 1.25rem;
+}
+
+.nme-logo--compact {
+    gap: 12px;
+}
+
+.nme-logo--compact .nme-logo-link {
+    gap: 12px;
+}
+
+/* Variant: inline (wordmark only) */
+.nme-logo--inline .nme-logo-wordmark {
+    font-size: 1.1rem;
+}
+
+/* Variant: mark (badge only — favicon / mobile) */
+.nme-logo--mark .nme-logo-badge-svg {
+    width: 56px;
+    height: 56px;
+}
+
+/* Theme: light — for use on dark / forest backgrounds */
+.nme-logo--light .nme-logo-name {
+    color: var(--nme-cream);
+}
+
+.nme-logo--light .nme-logo-pill {
+    background: var(--nme-cream);
+    color: var(--nme-forest);
+}
+
+.nme-logo--light .nme-logo-tagline {
+    color: rgba(250, 247, 240, 0.78);
+}
+
+.nme-logo--light .nme-logo-kicker {
+    color: var(--nme-gold);
+}
+
+/* Responsive: shrink on mobile so the lockup never wraps awkwardly */
+@media (max-width: 600px) {
+    .nme-logo-badge-svg {
+        width: 46px;
+        height: 46px;
+    }
+    .nme-logo--compact .nme-logo-badge-svg {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    .nme-logo-wordmark {
+        font-size: 1.25rem;
+    }
+    .nme-logo--compact .nme-logo-wordmark {
+        font-size: 0.95rem !important;
+        gap: 3px;
+    }
+    .nme-logo--compact .nme-logo-pill {
+        font-size: 0.78em;
+        padding: 3px 7px 4px;
+    }
+    .nme-logo--compact {
+        gap: 8px;
+    }
+    .nme-logo--compact .nme-logo-link {
+        gap: 8px;
+    }
+    .nme-logo-tagline {
+        font-size: 0.72rem;
+    }
+    .nme-header-injected-standalone {
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .nme-logo--compact .nme-logo-wordmark {
+        font-size: 0.85rem !important;
+    }
+    .nme-logo--compact .nme-logo-pill {
+        font-size: 0.75em;
+        padding: 2px 6px 3px;
+    }
+    /* On very tight screens drop the gold EXPERTS pill — the badge
+       already carries the EXPERTS identity so this stays readable */
+    .nme-logo--compact .nme-logo-pill-gold {
+        display: none;
+    }
+}
+
+/* ============================================================
+   v1.2.7 — AUTO-INJECT LOGO INTO ASTRA HEADER
+   Hides Astra's default site title / tagline / logo image
+   constraints so our [nme_logo] renders cleanly in the header
+   branding slot. Paired with get_custom_logo filter in
+   functions.php.
+   ============================================================ */
+
+/* Suppress Astra's default site title + tagline so they don't
+   duplicate next to our SVG logo */
+.ast-site-identity .site-title,
+.ast-site-identity .site-description,
+.site-branding .site-title,
+.site-branding .site-description,
+.ast-site-title-wrap,
+.site-branding p.site-title,
+.site-branding p.site-description {
+    display: none !important;
+}
+
+/* Astra constrains .custom-logo-link with max-width; unlock it */
+.site-branding .custom-logo-link.nme-custom-logo,
+.ast-header-break-point .custom-logo-link.nme-custom-logo,
+a.custom-logo-link.nme-custom-logo {
+    max-width: none !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+}
+
+/* The inner .nme-logo span should not inherit any link-underline */
+.nme-custom-logo .nme-logo,
+.nme-custom-logo:hover,
+.nme-custom-logo:focus {
+    text-decoration: none !important;
+}
+
+/* Ensure our badge SVG always stays a clean square inside the link */
+.nme-custom-logo .nme-logo-badge-svg {
+    max-width: none !important;
+    height: 44px !important;
+    width: 44px !important;
+}
+
+/* Give the header branding slot some breathing room */
+.ast-site-identity,
+.site-branding {
+    padding: 8px 0 !important;
+}
+
+/* v1.2.8: fallback wrapper for Astra's masthead-branding hook —
+   if the core filter path rendered already, hide this duplicate */
+.nme-astra-branding-fallback {
+    display: inline-flex;
+    align-items: center;
+}
+
+.site-branding .custom-logo-link.nme-custom-logo ~ .nme-astra-branding-fallback,
+.ast-site-identity .custom-logo-link.nme-custom-logo ~ .nme-astra-branding-fallback {
+    display: none !important;
+}
+
+/* v1.2.9: standalone JS-injected logo — sits at the far-left of
+   the header bar, pushes nav to the right via auto-margin */
+.nme-header-injected {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1px;
+}
+
+.nme-header-injected-standalone {
+    margin-right: auto !important;
+    padding: 8px 24px;
+    order: -10;
+    flex-shrink: 0;
+}
+
+/* Make sure the header row becomes a flex container so order/margin work */
+.ast-main-header .main-header-bar-wrap,
+.ast-main-header .main-header-bar,
+.ast-builder-grid-row-container-inner,
+.ast-builder-grid-row,
+.ast-primary-header-bar .ast-container {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* ============================================================
+   v1.2.10 — CLOSE THE GAP BETWEEN HEADER AND FIRST HERO
+   Root cause of the visible "stripe" on dark-hero pages: body
+   background was white, and a thin vertical gap existed between
+   the header's bottom edge and the first content element. The
+   white body showed through that gap. Fix: transparent body +
+   zero top margin/padding on every wrapper below the header.
+   The gold 3px header border is retained and now sits flush
+   against the hero like a premium gold rule.
+   ============================================================ */
+body {
+    background: transparent !important;
+}
+
+/* Force everything that sits directly under the masthead to
+   hug the header with no top gap */
+#content,
+#content > *:first-child,
+.site-content,
+.site-content > *:first-child,
+#primary,
+#primary > *:first-child,
+main#main,
+main#main > *:first-child,
+.ast-article-single,
+.ast-article-single > *:first-child,
+article.page,
+article.post,
+article.page > *:first-child,
+article.post > *:first-child,
+.entry-content,
+.entry-content > *:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: 0 !important;
+}
+
+/* Astra sometimes renders empty wrappers with top margin between
+   header and first hero — kill those specifically */
+.ast-main-header + *,
+#masthead + *,
+header.site-header + *,
+.ast-mobile-header-wrap + * {
+    margin-top: 0 !important;
+}
+
+/* Guarantee the header bar has no extra bottom padding creating
+   a seam — the gold divider becomes flush with the hero top */
+header.site-header,
+#masthead,
+.ast-main-header-wrap,
+.ast-main-header,
+.ast-mobile-header-wrap {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
