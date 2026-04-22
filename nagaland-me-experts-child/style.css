@@ -460,9 +460,10 @@ p .nme-btn {
 }
 
 @media (max-width: 640px) {
-    .nme-hero { padding: 48px 16px 60px; }
+    .nme-hero { padding: 48px 0 60px; }
+    .nme-hero .nme-container { padding: 0 16px; }
     .nme-hero h1 { font-size: 1.85rem; }
-    .nme-hero p.lead { font-size: 1.05rem; }
+    .nme-hero p.lead { font-size: 1.05rem; max-width: 100%; }
 }
 
 /* === EXPERT HERO — v1.2.2 (distinct from homepage) === */
